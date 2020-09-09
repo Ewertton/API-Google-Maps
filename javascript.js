@@ -70,7 +70,6 @@ function calcRoute(){
                 ".<br/>To: "+response.to+"<br/> Driving Distance: "+response.distanceText+
                 ".<br/>Durations: "+response.durationsText+"</div>"
                 ); 
-                console.log(result);
             directionsDisplay.setDirections(result);
         }
 
