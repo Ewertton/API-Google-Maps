@@ -1,19 +1,15 @@
 
-const myLatLng = {
-    lat: -5.79448,
-    lng: -35.211
-};
 
 const mapOptions = {
-  center: myLatLng,
-  zoom: 13,
-  mapTypeId: google.maps.MapTypeId.ROADMAP
-};
-
-const options = {
+    center: {
+        lat: -5.79448,
+        lng: -35.211
+    },
+    zoom: 13,
     types :'cities',
     radius :'100'
-}
+    // mapTypeId: 'roadmap',//ALTERA MODO VISUALIZAÇÃO DO MAPA || roadmap, satellite, hybrid, terrain
+};
 
 const from = document.getElementById("from");
 const to = document.getElementById("to");
@@ -29,14 +25,14 @@ const directionsDisplay = new google.maps.DirectionsRenderer();
 
 const autoCompleteFrom = new google.maps.places.Autocomplete(
     from, 
-    options.types, 
-    options.radius
+    mapOptions.types, 
+    mapOptions.radius
 );
 
 const autoCompleteTo = new google.maps.places.Autocomplete(
     to, 
-    options.types, 
-    options.radius
+    mapOptions.types, 
+    mapOptions.radius
 );
 
 directionsDisplay.setMap(map);
@@ -53,6 +49,7 @@ function calcRoute(){
         unitSystem: google.maps.UnitSystem.METRIC //IMPERIAL
     }
 
+
     function respRoute(result,status){
 
         const response ={
@@ -60,6 +57,7 @@ function calcRoute(){
             to: document.getElementById("to").value,     //INPUT DO HTML 
             distanceText: result.routes[0].legs[0].distance.text,
             durationsText: result.routes[0].legs[0].duration.text
+
             //distanceValue: result.routes[0].legs[0].distance.value, DISTANCIA EM METROS
             //durationsValue: result.routes[0].legs[0].duration.value, TEMPO EM SEGUNDOS
         }
@@ -71,6 +69,7 @@ function calcRoute(){
                 ".<br/>Durations: "+response.durationsText+"</div>"
                 ); 
             directionsDisplay.setDirections(result);
+           
         }
 
         else{
