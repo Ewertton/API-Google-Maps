@@ -43,6 +43,7 @@ function setInfoRoute(){
         destination: document.getElementById('to').value,
         travelMode: google.maps.TravelMode.DRIVING, //[selectedMode], //WALKING, BYCYCLING, TRANSIT
         unitSystem: google.maps.UnitSystem.METRIC, //IMPERIAL
+        provideRouteAlternatives: true //DISPONIBILIZA MAIS DE UMA ROTA
         
     }
     return optionsRoute
