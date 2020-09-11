@@ -56,7 +56,12 @@ function calcRoute(){
             form: document.getElementById("from").value, //INPUT DO HTML
             to: document.getElementById("to").value,     //INPUT DO HTML 
             distanceText: result.routes[0].legs[0].distance.text,
-            durationsText: result.routes[0].legs[0].duration.text
+            durationsText: result.routes[0].legs[0].duration.text,
+            lngFrom: result.routes[0].legs[0].start_location.lng(),//LONGITUDE ORIGEM
+            latFrom: result.routes[0].legs[0].start_location.lat(),//LATITUDE ORIGEM
+ 
+            lngTo: result.routes[0].legs[0].end_location.lng(),//LONGITUE DESTINO
+            latTo: result.routes[0].legs[0].end_location.lat()//LATITUDE DESTINO
 
             //distanceValue: result.routes[0].legs[0].distance.value, DISTANCIA EM METROS
             //durationsValue: result.routes[0].legs[0].duration.value, TEMPO EM SEGUNDOS
